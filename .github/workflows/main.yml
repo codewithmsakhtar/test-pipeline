@@ -24,7 +24,7 @@ jobs:
       - name: Terraform init/plan
         uses: comu2e/tfnotify-composite-action@1.0.4 
       - name: terraform-apply
-        uses: dflook/terraform-apply@v2.2.3  
+        uses: dflook/terraform-apply@v2.2.3
   
 
     
