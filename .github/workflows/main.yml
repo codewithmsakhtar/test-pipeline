@@ -1,11 +1,27 @@
-name: myfirstworkflow
+name: "Terraform CI/CD Pipeline"
 on: workflow_dispatch
 jobs:
-  my-first-workflow:
-   
+  terraform:
+    name: "Terraform Workflow"
     runs-on: ubuntu-latest
+    steps:                      # 6. Job ke andar steps
+      - name: Checkout Code
+        uses: actions/checkout@v6
+      - name: Azure Login
+        uses: Azure/login@v3.0.0  
+        
+      - name: Check Azure Account
+        run: az account show
+
+      - name: List Resource Groups
+        run: az group list --output table
+        
+      - name: terraform installation
+        uses: little-core-labs/install-terraform@v2.0.0
+
+      - name: Terraform init/plan
+        uses: comu2e/tfnotify-composite-action@1.0.4 
+  
 
     
-    steps:
-      - name: Print Welcome Message
-        run: echo "Hello! GitHub Actions is running."
+ 
