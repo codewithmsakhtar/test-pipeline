@@ -22,6 +22,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+           
+      - name: Check Terraform Version
+        run: terraform version
+
       - name: Terraform Init
         run: terraform init
 
@@ -30,9 +34,7 @@ jobs:
       
       - name: Terraform Apply
         run: terraform apply -auto-approve  
-      
-      - name: Check Terraform Version
-        run: terraform version
+ 
 
   
 
